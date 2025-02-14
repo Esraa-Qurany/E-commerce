@@ -2,7 +2,6 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { baseUrl } from "../../constant/conastant";
-import ProductDetailsSkeleton from "./productDetailsSkeleton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
@@ -10,6 +9,7 @@ import { EffectCards } from "swiper/modules";
 import { cartContext } from "../../Context/CartContext";
 import toast, { Toaster } from "react-hot-toast";
 import { wishlistContext } from "../../Context/WishlistContext";
+import ProductDetailsSkeleton from './ProductDetailsSkeleton';
 
 export default function ProductDetails() {
   const { productId } = useParams();
