@@ -14,11 +14,13 @@ export default function Wishlist() {
   async function getWishlist() {
     setLoading(true);
     const data = await getWishlistItem();
+    console.log("data get :", data);
     setWishlistDetails(data);
     setLoading(false);
   }
   async function deleteItem(productId) {
     const data = await deleteWishlistItem(productId);
+    console.log("data :", data);
     toast.success(data?.message);
     setWishlistDetails(data);
     setLoading(false);
