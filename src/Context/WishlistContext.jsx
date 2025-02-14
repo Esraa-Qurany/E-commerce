@@ -5,11 +5,13 @@ import { baseUrl } from "../constant/conastant";
 export const wishlistContext = createContext();
 export default function WishlistContextProvider({ children }) {
   const [wishlist, setWishlist] = useState(null);
-  const headers = { token: localStorage.getItem("token") };
+
   async function getWishlistItem() {
     try {
       const { data } = await axios.get(`${baseUrl}/api/v1/wishlist`, {
-        headers: headers,
+        headers: {
+          token: localStorage.getItem("token"),
+        },
       });
 
       return data;
@@ -21,7 +23,11 @@ export default function WishlistContextProvider({ children }) {
     try {
       const { data } = await axios.delete(
         `${baseUrl}/api/v1/wishlist/${productId}`,
-        { headers: headers }
+        {
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        }
       );
       return data;
     } catch (error) {
@@ -34,7 +40,11 @@ export default function WishlistContextProvider({ children }) {
       const { data } = await axios.post(
         `${baseUrl}/api/v1/wishlist`,
         { productId },
-        { headers: headers }
+        {
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        }
       );
       return data;
     } catch (error) {

@@ -13,8 +13,8 @@ export default function ProductCard({ productData }) {
   async function addProduct(productId) {
     const loadingToster = toast.loading("Waiting...");
     const data = await addToCart(productId);
-    toast.dismiss(loadingToster);
     setCart(data);
+    toast.dismiss(loadingToster);
     if (data.status === "success") {
       toast.success(data?.message);
     } else {
