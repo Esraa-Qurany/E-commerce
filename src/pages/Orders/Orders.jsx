@@ -56,9 +56,7 @@ export default function Orders() {
                         alt={item?.product?.title}
                       />
                       <div className="font-medium text-center md:text-left">
-                        <h3 className="text-xl py-2">
-                          {item?.product?.title}
-                        </h3>
+                        <h3 className="text-xl py-2">{item?.product?.title}</h3>
                         <p>{item?.price}EGP</p>
                         <p className="py-2">
                           number of product :{" "}
