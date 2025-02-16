@@ -55,7 +55,7 @@ export default function Orders() {
                         src={item?.product?.imageCover}
                         alt={item?.product?.title}
                       />
-                      <div className="font-medium ">
+                      <div className="font-medium text-center md:text-left">
                         <h3 className="text-xl py-2">
                           {item?.product?.title}
                         </h3>
