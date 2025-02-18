@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../../Context/UserContext";
+import { Button } from "flowbite-react";
 
 export default function Login() {
   useEffect(() => {
@@ -21,9 +22,7 @@ export default function Login() {
     email: Yup.string()
       .email("Please enter valid email")
       .required("The input is required"),
-    password: Yup.string()
-      .required("The input is required")
-      
+    password: Yup.string().required("The input is required"),
   });
   const handleLogin = async (values) => {
     const loadingToster = toast.loading("Waiting...");
@@ -33,17 +32,17 @@ export default function Login() {
         `${baseUrl}/api/v1/auth/signin`,
         values
       );
+      setLoading(false);
       toast.success(data.message);
       toast.dismiss(loadingToster);
-      setLoading(false);
       setToken(data.token);
       localStorage.setItem("token", data.token);
       navigate("/");
     } catch (errors) {
+      setLoading(false);
       if (errors?.response.data.errors) {
         toast.error(errors?.response.data.errors.msg);
         toast.dismiss(loadingToster);
-        setLoading(false);
       } else {
         toast.error(errors?.response.data.message);
         toast.dismiss(loadingToster);
@@ -113,20 +112,19 @@ export default function Login() {
               forget your password ?
             </p>
           </Link>
-          {!loading ? (
-            <button
-              type="submit"
-              className=" text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
+          {loading ? (
+            <Button
+              className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto text-center"
+              isProcessing
             >
               Login
-            </button>
+            </Button>
           ) : (
             <button
-              type="button"
-              className=" text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
-              disabled
+              type="submit"
+              className=" text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             >
-              Login <i className="fa-solid fa-spinner fa-spin"></i>
+              Login
             </button>
           )}
         </div>
