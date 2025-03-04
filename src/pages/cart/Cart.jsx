@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
+  document.title = "Cart";
   const {
     getCartItem,
     deleteCartItem,
@@ -54,7 +55,6 @@ export default function Cart() {
   }
 
   useEffect(() => {
-    document.title = "Cart component";
     getCart();
   }, []);
   return (

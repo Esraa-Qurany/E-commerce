@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { cartContext } from "../../Context/CartContext";
 
 export default function Wishlist() {
+  document.title = "Wishlist";
   const { getWishlistItem, deleteWishlistItem, setWishlist } =
     useContext(wishlistContext);
   const { addToCart, setCart } = useContext(cartContext);
@@ -36,7 +37,6 @@ export default function Wishlist() {
     }
   }
   useEffect(() => {
-    document.title = "Wishlist component";
     getWishlist();
   }, []);
 

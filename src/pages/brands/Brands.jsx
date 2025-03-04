@@ -6,9 +6,7 @@ import BrandSkeleton from "../../component/BrandsCard/BrandSkeleton";
 import { BrandDetails } from "../../component/BrandDetails/BrandDetails";
 
 export default function Brands() {
-  useEffect(() => {
-    document.title = "Brands component";
-  }, []);
+  document.title = "Brands";
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);

@@ -9,6 +9,7 @@ export default function Orders() {
   const token = localStorage.getItem("token");
   const { id: userId } = jwtDecode(token);
   async function getAllOrders() {
+    document.title = "all orders";
     setLoading(true);
     try {
       const { data } = await axios.get(

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import ProductSkeleton from "../../component/productCard/ProductSkeleton";
 
 export default function Products() {
-  useEffect(() => {
-    document.title = "Products component";
-  }, []);
+
+    document.title = "Products";
+
 
   const [allProductData, setAllProductData] = useState([]);
   const [search, setSearch] = useState(" ");

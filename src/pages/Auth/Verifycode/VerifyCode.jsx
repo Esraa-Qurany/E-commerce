@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { baseUrl } from "../../../constant/conastant";
 
 export default function VerifyCode() {
-  useEffect(() => {
-    document.title = "VerifyCode";
-  }, []);
+
+    document.title = "Verify Code";
+
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);

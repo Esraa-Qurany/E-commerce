@@ -6,9 +6,7 @@ import { useEffect, useState } from "react";
 import { baseUrl } from "../../../constant/conastant";
 
 export default function ForgetPassword() {
-  useEffect(() => {
-    document.title = "forgetPassword";
-  }, []);
+  document.title = "Forget Password";
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);

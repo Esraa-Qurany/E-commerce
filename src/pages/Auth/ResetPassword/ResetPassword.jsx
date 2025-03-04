@@ -7,10 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 export default function ResetPassword() {
-  useEffect(() => {
-    document.title = "ResetPassword";
-  }, []);
-
+  document.title = "Reset Password";
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -40,11 +37,9 @@ export default function ResetPassword() {
       setLoading(false);
       navigate("/home");
     } catch (errors) {
-    console.log('errors :', errors);
-      
-      }
+      console.log("errors :", errors);
     }
-  
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -62,7 +57,9 @@ export default function ResetPassword() {
         onSubmit={formik.handleSubmit}
         className="container mx-auto p-5 pt-36"
       >
-        <h1 className="text-3xl mb-5 text-gray-700">reset your account password :</h1>
+        <h1 className="text-3xl mb-5 text-gray-700">
+          reset your account password :
+        </h1>
         <div className="mb-5">
           <label
             htmlFor="email"

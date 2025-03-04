@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import error from "../../assets/error.png";
 
 export default function Error() {
-  useEffect(() => {
-    document.title = "Error component";
-  }, []);
+
+    document.title = "Error";
+
 
   return (
     <div className="flex flex-col items-center justify-center h-svh">

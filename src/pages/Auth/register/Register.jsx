@@ -7,9 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 export default function Register() {
-  useEffect(() => {
-    document.title = "Register";
-  }, []);
+  document.title = "Register";
 
   const navigate = useNavigate();
   const [loading, setLoding] = useState(false);

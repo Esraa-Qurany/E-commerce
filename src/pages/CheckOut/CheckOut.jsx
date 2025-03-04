@@ -5,9 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { cartContext } from "../../Context/CartContext";
 
 export default function CheckOut() {
-  useEffect(() => {
-    document.title = "Checkout component";
-  }, []);
+
+    document.title = "Checkout";
 
   const [loading, setLoading] = useState(false);
   const { CheckOut, cartId } = useContext(cartContext);

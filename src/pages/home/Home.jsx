@@ -12,28 +12,13 @@ import img2 from "../../assets/music.jpg";
 import imgSlider1 from "../../assets/babyCart.jpg";
 import imgSlider2 from "../../assets/bag.jpg";
 import imgSlider3 from "../../assets/accessories.jpg";
+import Products from "../products/Products";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "Home component";
-  }, []);
-
-  const [allProductData, setAllProductData] = useState([]);
+  document.title = "Home";
   const [allCategories, setAllCategories] = useState([]);
-  const [search, setSearch] = useState(" ");
   const [loading, setLoading] = useState(false);
-  async function getAllProduct() {
-    setLoading(true);
-    try {
-      const { data } = await axios.get(`${baseUrl}/api/v1/products`);
-      setAllProductData(data.data);
-      setLoading(false);
-      return data;
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  }
+
   async function getAllCategories() {
     setLoading(true);
     try {
@@ -47,7 +32,7 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    getAllProduct(), getAllCategories();
+    getAllCategories();
   }, []);
 
   return (
@@ -130,25 +115,7 @@ export default function Home() {
           ))}
         </Swiper>
       </div>
-      <div className="flex justify-center py-5 ">
-        <input
-          onChange={(e) => setSearch(e.target.value)}
-          type="search"
-          className="w-3/4 border-gray-300 rounded-md outline-green-400 focus:border-green-400 active:border-green-400 focus:ring-green-500 "
-          placeholder="search..."
-        />
-      </div>
-      <div className="p-2 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {loading
-          ? Array.from({ length: 20 }, (_, i) => <ProductSkeleton key={i} />)
-          : allProductData
-              .filter((productData) => {
-                return productData?.title.includes(search);
-              })
-              .map((productData) => (
-                <ProductCard key={productData._id} productData={productData} />
-              ))}
-      </div>
+      <Products />
     </div>
   );
 }

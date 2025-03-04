@@ -5,9 +5,7 @@ import CategoryCard from "../../component/CategoryCard/CategoryCard";
 import CategorySkeleton from "../../component/CategoryCard/CategorySkeleton";
 
 export default function Categories() {
-  useEffect(() => {
-    document.title = "Categories component";
-  }, []);
+  document.title = "Categories";
 
   const [allProductData, setAllProductData] = useState([]);
   const [loading, setLoading] = useState(false);

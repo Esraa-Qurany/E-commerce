@@ -10,10 +10,7 @@ import { UserContext } from "../../../Context/UserContext";
 import { Button } from "flowbite-react";
 
 export default function Login() {
-  useEffect(() => {
-    document.title = "Login";
-  }, []);
-
+  document.title = "Login";
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { setToken } = useContext(UserContext);
