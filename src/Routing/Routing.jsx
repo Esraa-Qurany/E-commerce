@@ -16,6 +16,7 @@ import Orders from "../pages/Orders/Orders";
 import VerifyCode from "../pages/Auth/Verifycode/VerifyCode";
 import ForgetPassword from "../pages/Auth/ForgetPassword/ForgetPassword";
 import ResetPassword from '../pages/Auth/ResetPassword/ResetPassword';
+import Error from '../pages/error/Error';
 
 export const routing = [
   {
